@@ -2,6 +2,11 @@
 class RaceCar	< ActiveRecord::Base
 	enum_attr :gear, %w(reverse ^neutral first second over_drive)
 	enum_attr :choke, %w(^none medium full)
+
+  def license_plate_number=(value)
+    value = value.strip # remove whitespace from start and end of value
+    write_attribute(:license_plate_number, value)
+  end
 end
 
 #gear = enumerated column attribute

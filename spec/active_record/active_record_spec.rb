@@ -409,6 +409,11 @@ describe "RaceCar" do
 		s = RaceCar.find r.id
 		s.lights.should == "--- :off\n"
 		s[:lights].should == "--- :off\n"
-	end
+  end
+
+  it "should use values returned by attribute setter methods" do
+    r =RaceCar.new(:license_plate_number => ' asdf ')
+    r.license_plate_number.should == 'asdf'
+  end
 	
 end

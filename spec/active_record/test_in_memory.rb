@@ -12,6 +12,7 @@ ActiveRecord::Base.logger = Logger.new("#{File.dirname(__FILE__)}/active_record.
 connection = ActiveRecord::Base.connection
   connection.create_table(:race_cars, :force=>true) do |t|
 	t.string :name
+	t.string :license_plate_number
 	t.enum :gear
 	t.enum :lights
   t.timestamps
