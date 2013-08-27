@@ -415,5 +415,10 @@ describe "RaceCar" do
     r =RaceCar.new(:license_plate_number => ' asdf ')
     r.license_plate_number.should == 'asdf'
   end
-	
+
+  it "should not generate Active Record attributes on #new for keys that are not really active record attributes" do
+    r =RaceCar.new(:non_active_record_attribute => 'some value')
+    r.should_not have_attribute(:non_active_record_attribute)
+  end
+
 end

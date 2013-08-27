@@ -97,7 +97,7 @@ module EnumeratedAttribute
 								def new(*args, &block)
 									result = new_without_enumerated_attribute(*args, &block)
 									params = (!args.empty? && args.first.instance_of?(Hash)) ? args.first : {}
-                  params.each { |k, v| result.write_enumerated_attribute(k, result[k.to_s]) }
+                  params.each { |k, v| result.write_enumerated_attribute(k, result[k.to_s]) if self.has_enumerated_attribute?(k.to_s) }
 									result.initialize_enumerated_attributes(true)
 									yield result if block_given?
 									result
